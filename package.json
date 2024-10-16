@@ -5,6 +5,7 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "type": "commonjs",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -36,7 +37,7 @@
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.7",
     "graphql": "^16.9.0",
     "graphql-subscriptions": "^2.0.0",
     "graphql-ws": "^5.16.0",
@@ -50,6 +51,7 @@
     "passport-local": "^1.0.0",
     "pino-http": "^10.3.0",
     "pino-pretty": "^11.2.2",
+    "pnpm": "^9.12.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },

@@ -3,9 +3,9 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { Logger } from 'nestjs-pino';
 import { ConfigService } from '@nestjs/config';
-import cookieParser from 'cookie-parser';
+const cookieParser = require('cookie-parser');
 
-export default async function bootstrap() {
+async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bufferLogs: true });
   app.useGlobalPipes(new ValidationPipe());
   app.useLogger(app.get(Logger));
@@ -18,3 +18,4 @@ export default async function bootstrap() {
 
   await app.listen(configService.getOrThrow('PORT'));
 }
+bootstrap();
