@@ -12,7 +12,7 @@ async function bootstrap() {
   app.use(cookieParser());
   const configService = app.get(ConfigService);
   app.enableCors({
-    origin: 'http://localhost:3000', // 允许来自前端的请求
+    origin: configService.get('FRONTEND_URL'), // 允许来自前端的请求
     credentials: true,
   });
 
