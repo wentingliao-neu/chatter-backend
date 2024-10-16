@@ -5,6 +5,7 @@ import { TokenPayload } from './token-payload.interface';
 import { JwtService } from '@nestjs/jwt';
 import { Response } from 'express';
 import { Request } from 'express';
+import { getJwt } from './jwt';
 
 @Injectable()
 export class AuthService {
@@ -24,15 +25,16 @@ export class AuthService {
     };
     const token = this.jwtService.sign(tokenPayload);
     response.cookie('Authentication', token, { httpOnly: true, expires });
+    return token;
   }
 
-  verifyWs(request: Request): TokenPayload {
-    const cookies: string[] = request.headers.cookie.split(';');
-    const authCookie = cookies.find((cookie) =>
+  verifyWs(request: Request, connectionParams: any = {}): TokenPayload {
+    const cookies: string[] = request.headers.cookie?.split(';');
+    const authCookie = cookies?.find((cookie) =>
       cookie.includes('Authentication'),
     );
-    const jwt = authCookie.split('Authentication=')[1];
-    return this.jwtService.verify(jwt);
+    const jwt = authCookie?.split('Authentication=')[1];
+    return this.jwtService.verify(jwt || getJwt(connectionParams.token));
   }
   async logout(response: Response) {
     response.cookie('Authentication', '', {
