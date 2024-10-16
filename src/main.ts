@@ -18,4 +18,5 @@ async function bootstrap() {
 
   await app.listen(configService.getOrThrow('PORT'));
 }
+bootstrap();
 export default bootstrap;
