@@ -7,7 +7,7 @@ import { FileUploadOptions } from './file-upload-options.interface';
 export class S3Service {
   private readonly client: S3Client;
   constructor(private readonly configService: ConfigService) {
-    const accessKeyId = configService.get('AWS_ACCESS_KEY');
+    const accessKeyId = configService.get('AWS_ACCESS_KEY_ID');
     const secretAccessKey = configService.get('AWS_SECRET_ACCESS_KEY');
     const region = configService.get('AWS_REGION');
     const clientConfig: S3ClientConfig = {};
