@@ -1,4 +1,4 @@
-version:0.2
+version: 0.2
 
 phases:
   install:
@@ -6,14 +6,14 @@ phases:
       nodejs: 20
     commands:
       - npm install
-    
+
   pre_build:
     commands:
       - npm install
   build:
     commands:
       - npm run build
-      
+
 artifacts:
   files:
     - '**/*'
