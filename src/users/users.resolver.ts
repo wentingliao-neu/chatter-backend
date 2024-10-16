@@ -3,11 +3,10 @@ import { UsersService } from './users.service';
 import { User } from './entities/user.entity';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
-import { UsersRepository } from './users.repository';
 import { UseGuards } from '@nestjs/common';
-import { GqlAuthGuard } from 'src/auth/guards/gql-auth.guard';
-import { TokenPayload } from 'src/auth/token-payload.interface';
-import { CurrentUser } from 'src/auth/current-user.decorator';
+import { GqlAuthGuard } from '../auth/guards/gql-auth.guard';
+import { TokenPayload } from '../auth/token-payload.interface';
+import { CurrentUser } from '../auth/current-user.decorator';
 import { Types } from 'mongoose';
 
 @Resolver(() => User)

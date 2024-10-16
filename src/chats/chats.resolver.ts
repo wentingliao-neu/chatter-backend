@@ -4,10 +4,10 @@ import { Chat } from './entities/chat.entity';
 import { CreateChatInput } from './dto/create-chat.input';
 import { UpdateChatInput } from './dto/update-chat.input';
 import { UseGuards } from '@nestjs/common';
-import { GqlAuthGuard } from 'src/auth/guards/gql-auth.guard';
-import { TokenPayload } from 'src/auth/token-payload.interface';
-import { CurrentUser } from 'src/auth/current-user.decorator';
-import { PaginationArgs } from 'src/common/dto/pagination-args.dto';
+import { GqlAuthGuard } from '../auth/guards/gql-auth.guard';
+import { TokenPayload } from '../auth/token-payload.interface';
+import { CurrentUser } from '../auth/current-user.decorator';
+import { PaginationArgs } from '../common/dto/pagination-args.dto';
 
 @Resolver(() => Chat)
 export class ChatsResolver {

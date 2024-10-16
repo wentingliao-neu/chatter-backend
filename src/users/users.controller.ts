@@ -9,9 +9,9 @@ import {
   FileTypeValidator,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CurrentUser } from 'src/auth/current-user.decorator';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { TokenPayload } from 'src/auth/token-payload.interface';
+import { CurrentUser } from '../auth/current-user.decorator';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { TokenPayload } from '../auth/token-payload.interface';
 import { UsersService } from './users.service';
 
 @Controller('users')
