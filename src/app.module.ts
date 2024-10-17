@@ -24,9 +24,11 @@ import { AuthService } from './auth/auth.service';
     }),
     GraphQLModule.forRootAsync<ApolloDriverConfig>({
       driver: ApolloDriver,
+
       useFactory: (authService: AuthService) => ({
         autoSchemaFile: true,
         path: '/api/graphql',
+        cors: true,
         subscriptions: {
           'graphql-ws': {
             path: '/api/graphql',

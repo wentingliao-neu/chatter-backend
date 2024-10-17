@@ -12,10 +12,10 @@ async function bootstrap() {
   app.use(cookieParser());
   app.setGlobalPrefix('/api');
   const configService = app.get(ConfigService);
-  // app.enableCors({
-  //   origin: configService.get('FRONTEND_URL'), // 允许来自前端的请求
-  //   credentials: true,
-  // });
+  app.enableCors({
+    origin: ['https://chatterroom.tech', configService.get('FRONTEND_URL')], // 允许来自前端的请求
+    credentials: true,
+  });
 
   await app.listen(configService.getOrThrow('PORT'));
 }
