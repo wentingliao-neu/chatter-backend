@@ -10,11 +10,12 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.useLogger(app.get(Logger));
   app.use(cookieParser());
+  app.setGlobalPrefix('/api');
   const configService = app.get(ConfigService);
-  app.enableCors({
-    origin: configService.get('FRONTEND_URL'), // 允许来自前端的请求
-    credentials: true,
-  });
+  // app.enableCors({
+  //   origin: configService.get('FRONTEND_URL'), // 允许来自前端的请求
+  //   credentials: true,
+  // });
 
   await app.listen(configService.getOrThrow('PORT'));
 }
