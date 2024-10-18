@@ -35,7 +35,7 @@ let MessagesService = class MessagesService {
             createdAt: new Date(),
             _id: new mongoose_1.Types.ObjectId(),
         };
-        await this.chatsRepository.findOneAndUpdate({ _id: chatId, ...this.chatsService.userChatFilter(userId) }, { $push: { messages: messageDocument } });
+        await this.chatsRepository.findOneAndUpdate({ _id: chatId }, { $push: { messages: messageDocument } });
         const message = {
             ...messageDocument,
             chatId,
@@ -67,7 +67,6 @@ let MessagesService = class MessagesService {
         for (const message of messages) {
             message.user = this.userService.toEntity(message.user);
         }
-        console.log(messages.length);
         return messages;
     }
     async countMessages(chatId) {

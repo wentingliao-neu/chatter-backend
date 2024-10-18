@@ -9,7 +9,6 @@ export class MessagesController {
   @Get('count')
   @UseGuards(JwtAuthGuard)
   async countMessages(@Query('chatId') chatId: string) {
-    console.log('arrive messages/count chatId', chatId);
     return this.messagesService.countMessages(chatId);
   }
 }

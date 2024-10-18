@@ -28,7 +28,7 @@ export class MessagesService {
       _id: new Types.ObjectId(),
     };
     await this.chatsRepository.findOneAndUpdate(
-      { _id: chatId, ...this.chatsService.userChatFilter(userId) },
+      { _id: chatId },
       { $push: { messages: messageDocument } },
     );
     const message: Message = {
@@ -63,7 +63,6 @@ export class MessagesService {
     for (const message of messages) {
       message.user = this.userService.toEntity(message.user);
     }
-    console.log(messages.length);
     return messages;
   }
 

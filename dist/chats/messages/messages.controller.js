@@ -21,7 +21,6 @@ let MessagesController = class MessagesController {
         this.messagesService = messagesService;
     }
     async countMessages(chatId) {
-        console.log('arrive messages/count chatId', chatId);
         return this.messagesService.countMessages(chatId);
     }
 };

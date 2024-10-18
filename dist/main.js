@@ -11,9 +11,14 @@ async function bootstrap() {
     app.useGlobalPipes(new common_1.ValidationPipe());
     app.useLogger(app.get(nestjs_pino_1.Logger));
     app.use(cookieParser());
+    app.setGlobalPrefix('/api');
     const configService = app.get(config_1.ConfigService);
     app.enableCors({
-        origin: configService.get('FRONTEND_URL'),
+        origin: [
+            'https://chatterroom.tech',
+            configService.get('FRONTEND_URL'),
+            'http://localhost:3000',
+        ],
         credentials: true,
     });
     await app.listen(configService.getOrThrow('PORT'));

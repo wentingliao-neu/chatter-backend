@@ -13,7 +13,11 @@ async function bootstrap() {
   app.setGlobalPrefix('/api');
   const configService = app.get(ConfigService);
   app.enableCors({
-    origin: ['https://chatterroom.tech', configService.get('FRONTEND_URL')], // 允许来自前端的请求
+    origin: [
+      'https://chatterroom.tech',
+      configService.get('FRONTEND_URL'),
+      'http://localhost:3000',
+    ], // 允许来自前端的请求
     credentials: true,
   });
 
