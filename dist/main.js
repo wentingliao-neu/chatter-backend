@@ -21,7 +21,9 @@ async function bootstrap() {
         ],
         credentials: true,
     });
-    await app.listen(configService.getOrThrow('PORT'));
+    const port = configService.getOrThrow('PORT') || 3001;
+    await app.listen(port);
+    console.log(`Application is running on: ${port}`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
