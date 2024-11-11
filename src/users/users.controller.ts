@@ -13,6 +13,8 @@ import { CurrentUser } from '../auth/current-user.decorator';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { TokenPayload } from '../auth/token-payload.interface';
 import { UsersService } from './users.service';
+import { Express } from 'express';
+import { Multer } from 'multer';
 
 @Controller('users')
 export class UsersController {
