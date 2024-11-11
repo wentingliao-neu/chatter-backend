@@ -7,7 +7,6 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "ES2021",
-    "types": ["Multer"],
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
