@@ -15,7 +15,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'https://chatterroom.tech',
-      configService.get('FRONTEND_URL'),
+      'https://main.d3kso0ojj0znf5.amplifyapp.com',
       'http://localhost:3000',
     ], // 允许来自前端的请求
     credentials: true,
