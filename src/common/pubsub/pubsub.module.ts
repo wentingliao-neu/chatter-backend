@@ -13,14 +13,15 @@ import { reviver } from './reviver';
       provide: PUB_SUB,
       useFactory: (configService: ConfigService) => {
         if (configService.get('NODE_ENV') === 'production') {
-          const options = {
-            host: configService.get('REDIS_HOST'),
-            port: configService.get('REDIS_PORT'),
-            reviver: reviver,
-          };
+          // const options = {
+          //   host: configService.get('REDIS_HOST'),
+          //   port: configService.get('REDIS_PORT'),
+          //   token: configService.get('REDIS_PASSWORD'),
+          // };
           return new RedisPubSub({
-            publisher: new Redis(options),
-            subscriber: new Redis(options),
+            publisher: new Redis(configService.get('REDIS_URL')),
+            subscriber: new Redis(configService.get('REDIS_URL')),
+            reviver: reviver,
           });
         } else return new PubSub();
       },
